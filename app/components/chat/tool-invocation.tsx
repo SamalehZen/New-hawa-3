@@ -75,7 +75,7 @@ export function ToolInvocation({
         >
           <div className="flex flex-1 flex-row items-center gap-2 text-left text-base">
             <Nut className="text-muted-foreground size-4" />
-            <span className="text-sm">Tools executed</span>
+            <span className="text-sm">Outils exécutés</span>
             <div className="bg-secondary text-secondary-foreground rounded-full px-1.5 py-0.5 font-mono text-xs">
               {uniqueToolIds.length}
             </div>
@@ -260,7 +260,7 @@ function SingleToolCard({
           }
         } catch (error) {
           if (!didCancel) {
-            setParseError("Failed to parse result")
+            setParseError("Échec de l'analyse du résultat")
           }
           console.error("Failed to parse result:", error)
         }
@@ -389,7 +389,7 @@ function SingleToolCard({
     }
 
     // Fallback
-    return "No result data available"
+    return "Aucune donnée de résultat disponible"
   }
 
   return (
@@ -421,7 +421,7 @@ function SingleToolCard({
               >
                 <div className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-1.5 py-0.5 text-xs text-blue-700 dark:border-blue-800 dark:bg-blue-950/30 dark:text-blue-400">
                   <Spinner className="mr-1 h-3 w-3 animate-spin" />
-                  Running
+                  En cours
                 </div>
               </motion.div>
             ) : (
@@ -434,7 +434,7 @@ function SingleToolCard({
               >
                 <div className="inline-flex items-center rounded-full border border-green-200 bg-green-50 px-1.5 py-0.5 text-xs text-green-700 dark:border-green-800 dark:bg-green-950/30 dark:text-green-400">
                   <CheckCircle className="mr-1 h-3 w-3" />
-                  Completed
+                  Terminé
                 </div>
               </motion.div>
             )}
@@ -474,7 +474,7 @@ function SingleToolCard({
               {isCompleted && (
                 <div>
                   <div className="text-muted-foreground mb-1 text-xs font-medium">
-                    Result
+                    Résultat
                   </div>
                   <div className="bg-background max-h-60 overflow-auto rounded border p-2 text-sm">
                     {parseError ? (
@@ -490,7 +490,7 @@ function SingleToolCard({
               <div className="text-muted-foreground flex items-center justify-between text-xs">
                 <div className="flex items-center">
                   <Code className="mr-1 inline size-3" />
-                  Tool Call ID:{" "}
+                  ID d'appel d'outil :{" "}
                   <span className="ml-1 font-mono">{toolCallId}</span>
                 </div>
               </div>

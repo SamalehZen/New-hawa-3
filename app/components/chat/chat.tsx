@@ -151,7 +151,7 @@ export function Chat() {
   // handle errors
   useEffect(() => {
     if (error) {
-      let errorMsg = "Something went wrong."
+      let errorMsg = "Une erreur est survenue."
       try {
         const parsed = JSON.parse(error.message)
         errorMsg = parsed.error || errorMsg
@@ -208,7 +208,7 @@ export function Chat() {
 
     if (input.length > MESSAGE_MAX_LENGTH) {
       toast({
-        title: `The message you submitted was too long, please submit something shorter. (Max ${MESSAGE_MAX_LENGTH} characters)`,
+        title: `Le message que vous avez soumis est trop long, veuillez soumettre quelque chose de plus court. (Max ${MESSAGE_MAX_LENGTH} caractères)`,
         status: "error",
       })
       setMessages((prev) => prev.filter((msg) => msg.id !== optimisticId))
@@ -251,7 +251,7 @@ export function Chat() {
     } catch {
       setMessages((prev) => prev.filter((msg) => msg.id !== optimisticId))
       cleanupOptimisticAttachments(optimisticMessage.experimental_attachments)
-      toast({ title: "Failed to send message", status: "error" })
+      toast({ title: "Échec de l'envoi du message", status: "error" })
     } finally {
       setIsSubmitting(false)
     }
@@ -384,7 +384,7 @@ export function Chat() {
             }}
           >
             <h1 className="mb-6 text-3xl font-medium tracking-tight">
-              What's on your mind?
+              Qu'avez-vous en tête ?
             </h1>
           </motion.div>
         ) : (

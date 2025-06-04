@@ -13,6 +13,9 @@ import {
 import { cleanMessagesForTools } from "./utils"
 
 export const maxDuration = 60
+export const config = {
+  runtime: 'edge'
+}
 
 type ChatRequest = {
   messages: MessageAISDK[]

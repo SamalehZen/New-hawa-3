@@ -28,20 +28,20 @@ export function DialogDeleteChat({
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Delete chat?</AlertDialogTitle>
+          <AlertDialogTitle>Supprimer le chat ?</AlertDialogTitle>
           <AlertDialogDescription>
-            This will delete &quot;{chatTitle}&quot;
+            Ceci supprimera "{chatTitle}"
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogCancel>Annuler</AlertDialogCancel>
           <AlertDialogAction
             onClick={async () => {
               setIsOpen(false)
               await onConfirmDelete()
             }}
           >
-            Delete
+            Supprimer
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

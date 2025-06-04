@@ -84,7 +84,7 @@ export const useSettingsStore = create<SettingsStore>()(
       },
     }),
     {
-      name: 'zola-settings',
+      name: 'emd-settings',
       version: 1,
     }
   )

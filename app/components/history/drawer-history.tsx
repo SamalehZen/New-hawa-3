@@ -213,7 +213,7 @@ export function DrawerHistory({
                 prefetch
               >
                 <span className="line-clamp-1 text-base font-normal">
-                  {chat.title || "Untitled Chat"}
+                  {chat.title || "Chat sans titre"}
                 </span>
                 <span className="mr-2 text-xs font-normal text-gray-500">
                   {formatDate(chat?.created_at)}
@@ -273,14 +273,14 @@ export function DrawerHistory({
         <TooltipTrigger asChild>
           <DrawerTrigger asChild>{trigger}</DrawerTrigger>
         </TooltipTrigger>
-        <TooltipContent>History</TooltipContent>
+        <TooltipContent>Historique</TooltipContent>
       </Tooltip>
       <DrawerContent>
         <div className="flex h-dvh max-h-[80vh] flex-col">
           <div className="border-b p-4 pb-3">
             <div className="relative">
               <Input
-                placeholder="Search..."
+                placeholder="Rechercher..."
                 className="rounded-lg py-1.5 pl-8 text-sm"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -293,7 +293,7 @@ export function DrawerHistory({
             <div className="flex flex-col space-y-6 px-4 pt-4 pb-8">
               {filteredChat.length === 0 ? (
                 <div className="text-muted-foreground py-4 text-center text-sm">
-                  No chat history found.
+                  Aucun historique de chat trouvé.
                 </div>
               ) : searchQuery ? (
                 // When searching, display a flat list without grouping

@@ -64,7 +64,7 @@ export function ResearchSection({
                 <div className="mt-auto flex flex-row items-end justify-between gap-2">
                   <div className="flex flex-col items-start gap-0.5 text-left">
                     <h3 className="text-2xl leading-tight font-medium text-white">
-                      Zola Research
+                      EMD Research
                     </h3>
 
                     <p className="text-sm text-white/80">

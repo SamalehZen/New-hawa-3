@@ -49,7 +49,7 @@ export function DialogAuth({ open, setOpen }: DialogAuthProps) {
       console.error("Error signing in with Google:", err)
       setError(
         (err as Error).message ||
-          "An unexpected error occurred. Please try again."
+          "Une erreur inattendue est survenue. Veuillez réessayer."
       )
     } finally {
       setIsLoading(false)
@@ -61,10 +61,10 @@ export function DialogAuth({ open, setOpen }: DialogAuthProps) {
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-xl">
-            You&apos;ve reached the limit for today
+            Vous avez atteint la limite pour aujourd'hui
           </DialogTitle>
           <DialogDescription className="pt-2 text-base">
-            Sign in below to increase your message limits.
+            Connectez-vous ci-dessous pour augmenter vos limites de messages.
           </DialogDescription>
         </DialogHeader>
         {error && (
@@ -87,7 +87,7 @@ export function DialogAuth({ open, setOpen }: DialogAuthProps) {
               height={20}
               className="mr-2 size-4"
             />
-            <span>{isLoading ? "Connecting..." : "Continue with Google"}</span>
+            <span>{isLoading ? "Connexion..." : "Continuer avec Google"}</span>
           </Button>
         </DialogFooter>
       </DialogContent>

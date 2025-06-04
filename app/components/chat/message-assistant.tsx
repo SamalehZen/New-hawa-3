@@ -104,12 +104,12 @@ export function MessageAssistant({
             )}
           >
             <MessageAction
-              tooltip={copied ? "Copied!" : "Copy text"}
+              tooltip={copied ? "Copié !" : "Copier le texte"}
               side="bottom"
             >
               <button
                 className="hover:bg-accent/60 text-muted-foreground hover:text-foreground flex size-7.5 items-center justify-center rounded-full bg-transparent transition"
-                aria-label="Copy text"
+                aria-label="Copier le texte"
                 onClick={copyToClipboard}
                 type="button"
               >

@@ -113,7 +113,7 @@ function CommandItemEdit({
               <X className="group-hover/edit-cancel:text-primary size-4 transition-colors duration-150" />
             </Button>
           </TooltipTrigger>
-          <TooltipContent>Cancel</TooltipContent>
+          <TooltipContent>Annuler</TooltipContent>
         </Tooltip>
       </div>
     </form>
@@ -179,7 +179,7 @@ function CommandItemDelete({
               <X className="group-hover/delete-cancel:text-primary size-4 transition-colors duration-150" />
             </Button>
           </TooltipTrigger>
-          <TooltipContent>Cancel</TooltipContent>
+          <TooltipContent>Annuler</TooltipContent>
         </Tooltip>
       </div>
     </form>
@@ -201,9 +201,9 @@ function CommandItemRow({
     <>
       <div className="flex min-w-0 flex-1 items-center gap-2">
         <span className="line-clamp-1 text-base font-normal">
-          {chat?.title || "Untitled Chat"}
+          {chat?.title || "Chat sans titre"}
         </span>
-        {isCurrentChat && <Badge variant="outline">current</Badge>}
+        {isCurrentChat && <Badge variant="outline">actuel</Badge>}
       </div>
 
       {/* Date and actions container */}
@@ -243,7 +243,7 @@ function CommandItemRow({
                 <PencilSimple className="text-muted-foreground group-hover/edit:text-primary size-4 transition-colors duration-150" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Edit</TooltipContent>
+            <TooltipContent>Modifier</TooltipContent>
           </Tooltip>
           <Tooltip>
             <TooltipTrigger asChild>
@@ -261,7 +261,7 @@ function CommandItemRow({
                 <TrashSimple className="text-muted-foreground group-hover/delete:text-destructive size-4 transition-colors duration-150" />
               </Button>
             </TooltipTrigger>
-            <TooltipContent>Delete</TooltipContent>
+            <TooltipContent>Supprimer</TooltipContent>
           </Tooltip>
         </div>
       </div>
@@ -445,7 +445,7 @@ export function CommandHistory({
       {hasPopover ? (
         <Tooltip>
           <TooltipTrigger asChild>{trigger}</TooltipTrigger>
-          <TooltipContent>History ⌘+K</TooltipContent>
+          <TooltipContent>Historique ⌘+K</TooltipContent>
         </Tooltip>
       ) : (
         trigger
@@ -453,18 +453,18 @@ export function CommandHistory({
       <CommandDialog
         open={isOpen}
         onOpenChange={handleOpenChange}
-        title="Chat History"
-        description="Search through your past conversations"
+        title="Historique du chat"
+        description="Recherchez dans vos conversations passées"
       >
         <Command shouldFilter={false} className="border-none">
           <CommandInput
-            placeholder="Search history..."
+            placeholder="Rechercher dans l'historique..."
             value={searchQuery}
             onValueChange={(value) => setSearchQuery(value)}
           />
           <CommandList className="max-h-[480px] min-h-[480px] flex-1 [&>[cmdk-list-sizer]]:space-y-6 [&>[cmdk-list-sizer]]:py-2">
             {filteredChat.length === 0 && (
-              <CommandEmpty>No chat history found.</CommandEmpty>
+              <CommandEmpty>Aucun historique de chat trouvé.</CommandEmpty>
             )}
 
             {searchQuery ? (
@@ -506,7 +506,7 @@ export function CommandHistory({
                     <span className="border-border bg-muted inline-flex size-5 items-center justify-center rounded-sm border">
                       ⏎
                     </span>
-                    <span>Go to chat</span>
+                    <span>Aller au chat</span>
                   </div>
                   <div className="flex items-center gap-1.5">
                     <div className="flex flex-row items-center gap-0.5">

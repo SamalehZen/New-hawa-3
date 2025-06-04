@@ -1,8 +1,8 @@
-# Zola Installation Guide
+# EMD Installation Guide
 
-Zola is a free, open-source AI chat app with multi-model support. This guide covers how to install and run Zola on different platforms, including Docker deployment options.
+EMD is a free, open-source AI chat app with multi-model support. This guide covers how to install and run EMD on different platforms, including Docker deployment options.
 
-![Zola screenshot](./public/cover_zola.webp)
+![EMD screenshot](./public/cover_emd.webp)
 
 ## Prerequisites
 
@@ -255,7 +255,7 @@ For agent profile pictures to work properly:
 
 ## Ollama Setup (Local AI Models)
 
-Ollama allows you to run AI models locally on your machine. Zola has built-in support for Ollama with automatic model detection.
+Ollama allows you to run AI models locally on your machine. EMD has built-in support for Ollama with automatic model detection.
 
 ### Installing Ollama
 
@@ -298,9 +298,9 @@ ollama list
 ollama serve
 ```
 
-### Zola + Ollama Integration
+### EMD + Ollama Integration
 
-Zola automatically detects all models available in your Ollama installation. No additional configuration is needed!
+EMD automatically detects all models available in your Ollama installation. No additional configuration is needed!
 
 **Features:**
 - **Automatic Model Detection**: Zola scans your Ollama instance and makes all models available
@@ -312,7 +312,7 @@ Zola automatically detects all models available in your Ollama installation. No 
 ### Configuration Options
 
 #### Default Configuration
-By default, Zola connects to Ollama at `http://localhost:11434`. This works for local installations.
+By default, EMD connects to Ollama at `http://localhost:11434`. This works for local installations.
 
 #### Custom Ollama URL
 To use a remote Ollama instance or custom port:
@@ -330,7 +330,7 @@ OLLAMA_BASE_URL=http://your-ollama-server:11434 npm run dev
 ```
 
 #### Settings UI
-Zola includes a settings interface where you can:
+EMD includes a settings interface where you can:
 - Enable/disable Ollama integration
 - Configure custom Ollama base URLs
 - Add multiple Ollama instances
@@ -340,7 +340,7 @@ Access settings through the gear icon in the interface.
 
 ### Docker with Ollama
 
-For a complete Docker setup with both Zola and Ollama:
+For a complete Docker setup with both EMD and Ollama:
 
 ```bash
 # Use the provided Docker Compose file
@@ -348,7 +348,7 @@ docker-compose -f docker-compose.ollama.yml up
 
 # Or manually with separate containers
 docker run -d -v ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
-docker run -p 3000:3000 -e OLLAMA_BASE_URL=http://ollama:11434 zola
+docker run -p 3000:3000 -e OLLAMA_BASE_URL=http://ollama:11434 emd
 ```
 
 The `docker-compose.ollama.yml` file includes:
@@ -365,9 +365,9 @@ The `docker-compose.ollama.yml` file includes:
 3. Verify firewall settings if using remote Ollama
 
 #### Models not appearing
-1. Refresh the models list in Zola settings
+1. Refresh the models list in EMD settings
 2. Check Ollama has models: `ollama list`
-3. Restart Zola if models were added after startup
+3. Restart EMD if models were added after startup
 
 #### Performance optimization
 1. Use smaller models for faster responses (1B-3B parameters)
@@ -400,8 +400,8 @@ The `docker-compose.ollama.yml` file includes:
 
 ```bash
 # Clone the repository
-git clone https://github.com/ibelick/zola.git
-cd zola
+git clone https://github.com/ibelick/emd.git
+cd emd
 
 # Install dependencies
 npm install
@@ -414,8 +414,8 @@ npm run dev
 
 ```bash
 # Clone the repository
-git clone https://github.com/ibelick/zola.git
-cd zola
+git clone https://github.com/ibelick/emd.git
+cd emd
 
 # Install dependencies
 npm install
@@ -428,7 +428,7 @@ The application will be available at [http://localhost:3000](http://localhost:30
 
 ## Supabase Setup
 
-Zola requires Supabase for authentication and storage. Follow these steps to set up your Supabase project:
+EMD requires Supabase for authentication and storage. Follow these steps to set up your Supabase project:
 
 1. Create a new project at [Supabase](https://supabase.com)
 2. Set up the database schema using the SQL script below
@@ -513,7 +513,7 @@ Build and run the Docker container:
 
 ```bash
 # Build the Docker image
-docker build -t zola .
+docker build -t emd .
 
 # Run the container
 docker run -p 3000:3000 \
@@ -522,7 +522,7 @@ docker run -p 3000:3000 \
   -e SUPABASE_SERVICE_ROLE=your_supabase_service_role_key \
   -e OPENAI_API_KEY=your_openai_api_key \
   -e MISTRAL_API_KEY=your_mistral_api_key \
-  zola
+  emd
 ```
 
 ### Option 2: Docker Compose
@@ -533,7 +533,7 @@ Create a `docker-compose.yml` file in the root of your project:
 version: "3"
 
 services:
-  zola:
+  emd:
     build:
       context: .
       dockerfile: Dockerfile
@@ -564,7 +564,7 @@ docker-compose down
 
 ### Option 3: Docker Compose with Ollama (Recommended for Local AI)
 
-For a complete setup with both Zola and Ollama running locally, use the provided `docker-compose.ollama.yml`:
+For a complete setup with both EMD and Ollama running locally, use the provided `docker-compose.ollama.yml`:
 
 ```bash
 # Start both Zola and Ollama services
@@ -584,7 +584,7 @@ This setup includes:
 - **Proper networking** between Zola and Ollama
 - **Volume persistence** for Ollama models
 
-The Ollama service will be available at `http://localhost:11434` and Zola will automatically detect all available models.
+The Ollama service will be available at `http://localhost:11434` and EMD will automatically detect all available models.
 
 To customize which models are pulled, edit the `docker-compose.ollama.yml` file and modify the `OLLAMA_MODELS` environment variable:
 
@@ -597,7 +597,7 @@ environment:
 
 ### Deploy to Vercel
 
-The easiest way to deploy Zola is using Vercel:
+The easiest way to deploy EMD is using Vercel:
 
 1. Push your code to a Git repository (GitHub, GitLab, etc.)
 2. Import the project into Vercel
@@ -626,7 +626,7 @@ npm start
 
 ## Configuration Options
 
-You can customize various aspects of Zola by modifying the configuration files:
+You can customize various aspects of EMD by modifying the configuration files:
 
 - `app/lib/config.ts`: Configure AI models, daily message limits, etc.
 - `.env.local`: Set environment variables and API keys

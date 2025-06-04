@@ -1,12 +1,12 @@
-# Zola
+# EMD
 
-[zola.chat](https://zola.chat)
+[emd.chat](https://emd.chat)
 
-**Zola** is the open-source interface for AI chat.
+**EMD** is the open-source interface for AI chat.
 
-[![Chat with this repo](https://zola.chat/button/github.svg)](https://zola.chat/?agent=github/ibelick/zola)
+[![Chat with this repo](https://emd.chat/button/github.svg)](https://emd.chat/?agent=github/ibelick/emd)
 
-![zola screenshot](./public/cover_zola.webp)
+![emd screenshot](./public/cover_emd.webp)
 
 ## Features
 
@@ -29,8 +29,8 @@
 ### Option 1: With OpenAI (Cloud)
 
 ```bash
-git clone https://github.com/ibelick/zola.git
-cd zola
+git clone https://github.com/ibelick/emd.git
+cd emd
 npm install
 echo "OPENAI_API_KEY=your-key" > .env.local
 npm run dev
@@ -44,23 +44,23 @@ curl -fsSL https://ollama.ai/install.sh | sh
 ollama pull llama3.2  # or any model you prefer
 
 # Clone and run Zola
-git clone https://github.com/ibelick/zola.git
-cd zola
+git clone https://github.com/ibelick/emd.git
+cd emd
 npm install
 npm run dev
 ```
 
-Zola will automatically detect your local Ollama models!
+EMD will automatically detect your local Ollama models!
 
 ### Option 3: Docker with Ollama
 
 ```bash
-git clone https://github.com/ibelick/zola.git
-cd zola
+git clone https://github.com/ibelick/emd.git
+cd emd
 docker-compose -f docker-compose.ollama.yml up
 ```
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ibelick/zola)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/ibelick/emd)
 
 To unlock features like auth, file uploads, and agents, see [INSTALL.md](./INSTALL.md).
 

@@ -143,10 +143,10 @@ export function MessageUser({
           />
           <div className="flex justify-end gap-2">
             <Button size="sm" variant="ghost" onClick={handleEditCancel}>
-              Cancel
+              Annuler
             </Button>
             <Button size="sm" onClick={handleSave}>
-              Save
+              Enregistrer
             </Button>
           </div>
         </div>
@@ -174,10 +174,10 @@ export function MessageUser({
         </MessageContent>
       )}
       <MessageActions className="flex gap-0 opacity-0 transition-opacity duration-0 group-hover:opacity-100">
-        <MessageAction tooltip={copied ? "Copied!" : "Copy text"} side="bottom">
+        <MessageAction tooltip={copied ? "Copié !" : "Copier le texte"} side="bottom">
           <button
             className="hover:bg-accent/60 text-muted-foreground hover:text-foreground flex size-7.5 items-center justify-center rounded-full bg-transparent transition"
-            aria-label="Copy text"
+            aria-label="Copier le texte"
             onClick={copyToClipboard}
             type="button"
           >
@@ -203,10 +203,10 @@ export function MessageUser({
             <PencilSimple className="size-4" />
           </button>
         </MessageAction> */}
-        <MessageAction tooltip="Delete" side="bottom">
+        <MessageAction tooltip="Supprimer" side="bottom">
           <button
             className="hover:bg-accent/60 text-muted-foreground hover:text-foreground flex size-7.5 items-center justify-center rounded-full bg-transparent transition"
-            aria-label="Delete"
+            aria-label="Supprimer"
             onClick={handleDelete}
             type="button"
           >

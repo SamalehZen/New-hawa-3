@@ -11,7 +11,7 @@ export function AppInfoContent() {
       <p className="text-foreground leading-relaxed">
         The code is available on{" "}
         <a
-          href="https://github.com/ibelick/zola"
+          href="https://github.com/ibelick/emd"
           target="_blank"
           rel="noopener noreferrer"
           className="underline"

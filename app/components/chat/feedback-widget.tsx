@@ -56,7 +56,7 @@ export function FeedbackWidget({ authUserId }: FeedbackWidgetProps) {
             scaleY: 1,
           }}
         >
-          <span className="sr-only">Help</span>
+          <span className="sr-only">Aide</span>
           <motion.span
             animate={{
               opacity: isOpen ? 0 : 1,

@@ -30,7 +30,7 @@ export async function generateMetadata({
     .single()
 
   const title = chat?.title || "Chat"
-  const description = "A chat in Zola"
+  const description = "A chat in EMD"
 
   return {
     title,
@@ -108,8 +108,8 @@ export default async function AgentChat({
       title={chatData.title || ""}
       subtitle={
         agentData
-          ? `A conversation with ${agentData.name}, an AI agent built in Zola`
-          : "A conversation in Zola"
+          ? `A conversation with ${agentData.name}, an AI agent built in EMD`
+          : "A conversation in EMD"
       }
     />
   )

@@ -74,7 +74,7 @@ export function SidebarItemMenu({
             }}
           >
             <Trash size={16} className="mr-2" />
-            Delete
+            Supprimer
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
