@@ -16,7 +16,7 @@ export const maxDuration = 60
 
 // Option 1 : si tu veux rester sur Edge Runtime (mais attention au timeout strict)
 export const config = {
-  runtime: "edge",
+  runtime: "nodejs",
 }
 
 // Option 2 : (RECOMMANDÉ si tu veux plus de tolérance côté Vercel)
