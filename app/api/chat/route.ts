@@ -13,9 +13,16 @@ import {
 import { cleanMessagesForTools } from "./utils"
 
 export const maxDuration = 60
+
+// Option 1 : si tu veux rester sur Edge Runtime (mais attention au timeout strict)
 export const config = {
-  runtime: 'edge'
+  runtime: "edge",
 }
+
+// Option 2 : (RECOMMANDÉ si tu veux plus de tolérance côté Vercel)
+// export const config = {
+//   runtime: "nodejs",
+// }
 
 type ChatRequest = {
   messages: MessageAISDK[]
@@ -82,7 +89,7 @@ export async function POST(req: Request) {
     const effectiveSystemPrompt =
       agentConfig?.systemPrompt || systemPrompt || SYSTEM_PROMPT_DEFAULT
 
-    let toolsToUse = undefined
+    let toolsToUse: ToolSet | undefined = undefined
 
     if (agentConfig?.mcpConfig) {
       const { tools } = await loadMCPToolsFromURL(agentConfig.mcpConfig.server)
@@ -94,28 +101,18 @@ export async function POST(req: Request) {
       }
     }
 
-    // Clean messages when switching between agents with different tool capabilities
     const hasTools = !!toolsToUse && Object.keys(toolsToUse).length > 0
     const cleanedMessages = cleanMessagesForTools(messages, hasTools)
-
-    let streamError: Error | null = null
 
     const result = streamText({
       model: modelConfig.apiSdk(),
       system: effectiveSystemPrompt,
       messages: cleanedMessages,
-      tools: toolsToUse as ToolSet,
-      // @todo: remove this
-      // hardcoded for now
+      tools: toolsToUse,
       maxSteps: 10,
       onError: (err: unknown) => {
         console.error("🛑 streamText error:", err)
-        streamError = new Error(
-          (err as { error?: string })?.error ||
-            "AI generation failed. Please check your model or API key."
-        )
       },
-
       onFinish: async ({ response }) => {
         if (supabase) {
           await storeAssistantMessage({
@@ -128,28 +125,23 @@ export async function POST(req: Request) {
       },
     })
 
-    await result.consumeStream()
-
-    if (streamError) {
-      throw streamError
-    }
-
-    const originalResponse = result.toDataStreamResponse({
+    // ✅ Stream direct au client : pas de .consumeStream(), donc pas de blocage !
+    const streamResponse = result.toDataStreamResponse({
       sendReasoning: true,
       sendSources: true,
     })
-    // Optionally attach chatId in a custom header.
-    const headers = new Headers(originalResponse.headers)
+
+    const headers = new Headers(streamResponse.headers)
     headers.set("X-Chat-Id", chatId)
 
-    return new Response(originalResponse.body, {
-      status: originalResponse.status,
+    return new Response(streamResponse.body, {
+      status: streamResponse.status,
       headers,
     })
   } catch (err: unknown) {
     console.error("Error in /api/chat:", err)
-    // Return a structured error response if the error is a UsageLimitError.
     const error = err as { code?: string; message?: string }
+
     if (error.code === "DAILY_LIMIT_REACHED") {
       return new Response(
         JSON.stringify({ error: error.message, code: error.code }),
